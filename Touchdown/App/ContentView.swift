@@ -24,6 +24,13 @@ struct ContentView: View {
                             .frame(height: UIScreen.main.bounds.width / 1.475) // This will fix the layout rendering priority issue by using the screen's aspect ratio.
                             .padding(.vertical, 20)
                         CategoryGridView()
+                        TitleView(title: "Helmet")
+                        LazyVGrid(columns: gridLayout, spacing: 15) {
+                            ForEach(products) { product in
+                                ProductItemView(product: product)
+                            }//: LOOP
+                        }//: GRID
+                        .padding(15)
                         FooterView()
                             .padding(.horizontal)
                     }//: VSTACK
